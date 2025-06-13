@@ -1,0 +1,54 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: #fff;
+    background-color: #495e57;
+    padding: 0 10rem;
+}
+
+.mainText {
+    margin-top: 2.5rem;
+    align-self: flex-start;
+    max-width: 19rem;
+}
+
+.mainSubHeading {
+    color: #f4ce14;
+}
+
+.mainImage {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+button {
+    margin-top: 2rem;
+    border: none;
+    color: black;
+    background-color: #f4ce14;
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+h1,
+h2 {
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+p {
+    line-height: 1.5;
+}

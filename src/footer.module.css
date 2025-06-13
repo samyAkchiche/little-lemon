@@ -1,0 +1,38 @@
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: left;
+}
+
+.footer img {
+    width: 150px;
+    height: auto;
+    align-self: start;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+}
+
+.link:hover {
+    color: #495e57;
+}
+
+h4 {
+    font-size: 1.5rem;
+}

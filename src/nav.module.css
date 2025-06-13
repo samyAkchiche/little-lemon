@@ -1,0 +1,15 @@
+.navList {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.navLinks {
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
