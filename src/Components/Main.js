@@ -1,5 +1,5 @@
-import mainImage from "./icons_assets/restauranfood.jpg";
-import styles from "./main.module.css";
+import mainImage from "../icons_assets/restauranfood.jpg";
+import styles from "./CssComponents/main.module.css";
 
 export default function Main() {
     return (

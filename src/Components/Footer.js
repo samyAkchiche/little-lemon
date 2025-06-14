@@ -1,5 +1,5 @@
-import Logo from "./icons_assets/Logo.svg";
-import styles from "./footer.module.css";
+import Logo from "../icons_assets/Logo.svg";
+import styles from "./CssComponents/footer.module.css";
 
 const doormatLinks = [
     "Home",

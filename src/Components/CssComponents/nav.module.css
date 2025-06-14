@@ -6,10 +6,8 @@
 }
 
 .navLinks {
-    font-family: "Markazi Text", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
     color: black;
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
+    font-size: 0.9rem;
 }
