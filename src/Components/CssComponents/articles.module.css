@@ -1,0 +1,26 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 5rem 1fr;
+    gap: 1rem;
+    margin: 1rem 24rem;
+}
+
+.specialLine {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        margin: 1rem 10rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem 5rem;
+    }
+}

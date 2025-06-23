@@ -1,4 +1,5 @@
 import mainImage from "../icons_assets/restauranfood.jpg";
+import Button from "./Button";
 import styles from "./CssComponents/main.module.css";
 
 export default function Main() {
@@ -11,7 +12,7 @@ export default function Main() {
                     We are family owned Mediterranean restaurant focused on
                     traditional recipes served with a modern twist.
                 </p>
-                <button>Reserve a Table</button>
+                <Button props="Reserve a Table" />
             </div>
             <img
                 className={styles.mainImage}

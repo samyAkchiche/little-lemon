@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 15rem;
     color: #fff;
     background-color: #495e57;
-    padding: 0 10rem;
+    padding: 0 5rem;
 }
 
 .mainText {
@@ -24,18 +24,6 @@
     object-fit: cover;
 }
 
-button {
-    margin-top: 2rem;
-    border: none;
-    color: black;
-    background-color: #f4ce14;
-    padding: 1rem;
-    font-weight: bold;
-    border-radius: 0.8rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
-
 h1,
 h2 {
     line-height: 1.1;
@@ -51,4 +39,11 @@ h2 {
 
 p {
     line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+    .main {
+        padding: 0 2rem;
+        gap: 5rem;
+    }
 }
