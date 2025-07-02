@@ -1,5 +1,4 @@
 import Articles from "../Components/Articles";
-import Footer from "../Components/Footer";
 import Main from "../Components/Main";
 import Testimonials from "../Components/Testimonials";
 
@@ -9,7 +8,6 @@ export default function Homepage() {
             <Main />
             <Articles />
             <Testimonials />
-            <Footer />
         </div>
     );
 }

@@ -11,3 +11,10 @@
     text-decoration: none;
     font-size: 0.9rem;
 }
+
+@media (max-width: 426px) {
+    .navList {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+}

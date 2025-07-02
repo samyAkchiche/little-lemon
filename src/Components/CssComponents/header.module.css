@@ -1,0 +1,6 @@
+@media (max-width: 426px) {
+    .header {
+        position: absolute;
+        top: 5rem;
+    }
+}

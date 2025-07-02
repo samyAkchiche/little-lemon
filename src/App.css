@@ -5,3 +5,42 @@
     gap: 4rem;
     align-items: center;
 }
+.menuIcon {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #333;
+}
+
+@media (max-width: 426px) {
+    .navBar {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin: 0;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        padding-top: 3rem;
+        background-color: #fff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .menuIcon {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1100;
+        font-size: 1.5rem;
+    }
+
+    .navBar.open {
+        transform: translateX(0);
+    }
+}

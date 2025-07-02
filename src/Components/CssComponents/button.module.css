@@ -1,4 +1,4 @@
-button {
+.button {
     margin-top: 2rem;
     border: none;
     color: black;
@@ -10,6 +10,6 @@ button {
     padding: 0.8rem 2rem;
 }
 
-button:hover {
+.button:hover {
     background-color: #ee9972;
 }

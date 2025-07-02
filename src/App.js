@@ -1,4 +1,5 @@
 import Homepage from "./Pages/Homepage";
+import hamburgerIcon from "./icons_assets/🦆 icon _hamburger menu.svg";
 import AboutPage from "./Pages/AboutPage";
 import ReservationPage from "./Pages/ReservationPage";
 import { Routes, Route } from "react-router-dom";
@@ -7,12 +8,22 @@ import OnlineOrderPage from "./Pages/OnlineOrderPage";
 import LoginPage from "./Pages/LoginPage";
 import "./app.css";
 import Header from "./Components/Header";
+import { useState } from "react";
 import Nav from "./Components/Nav";
+import Footer from "./Components/Footer";
 
 function App() {
+    const [isNavOpen, setIsNavOpen] = useState(false);
+
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+    };
     return (
         <>
-            <div className="navBar">
+            <button className="menuIcon" onClick={toggleNav}>
+                <img src={hamburgerIcon} />
+            </button>
+            <div className={`navBar ${isNavOpen ? "open" : ""}`}>
                 <Header />
                 <Nav />
             </div>
@@ -24,6 +35,7 @@ function App() {
                 <Route path="/onlineOrderPage" element={<OnlineOrderPage />} />
                 <Route path="/loginPage" element={<LoginPage />} />
             </Routes>
+            <Footer />
         </>
     );
 }
