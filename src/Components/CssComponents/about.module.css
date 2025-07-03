@@ -1,0 +1,37 @@
+.about {
+    display: flex;
+    margin: 1rem 20rem;
+    gap: 20rem;
+}
+
+.imgContainer {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20rem;
+    object-fit: cover;
+}
+
+.imgContainer img:nth-child(1) {
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -100%);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.imgContainer img:nth-child(2) {
+    z-index: 1;
+    top: calc(50% + 4rem);
+    left: calc(50% + 4rem);
+    transform: translate(-90%, -60%);
+}

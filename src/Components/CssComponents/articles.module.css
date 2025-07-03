@@ -24,3 +24,13 @@
         margin: 1rem 5rem;
     }
 }
+
+@media (max-width: 426px) {
+    .container {
+        margin: 3rem 2rem;
+    }
+
+    .specialLine h1 {
+        font-size: 3rem;
+    }
+}

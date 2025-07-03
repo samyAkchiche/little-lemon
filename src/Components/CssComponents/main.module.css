@@ -24,23 +24,6 @@
     object-fit: cover;
 }
 
-h1,
-h2 {
-    line-height: 1.1;
-}
-
-h1 {
-    font-size: 3rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-p {
-    line-height: 1.5;
-}
-
 @media (max-width: 1024px) {
     .main {
         padding: 0 2rem;

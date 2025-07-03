@@ -37,7 +37,7 @@
 .description {
     color: #333333;
     font-size: 0.9rem;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     text-align: left;
 }
 
@@ -53,4 +53,19 @@
     height: 1rem;
     width: auto;
     margin-left: 0.5rem;
+}
+
+@media (max-width: 426px) {
+    .description {
+        font-size: 0.85rem;
+        margin: 0.4rem 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
 }
