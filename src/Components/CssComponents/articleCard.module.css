@@ -56,16 +56,27 @@
 }
 
 @media (max-width: 426px) {
-    .description {
-        font-size: 0.85rem;
-        margin: 0.4rem 0;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    .article {
+        height: auto;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .img {
+        height: 10rem;
     }
 
     .title {
         font-size: 1.2rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
+        margin: 0.5rem 0;
+        text-align: justify;
+    }
+
+    .link {
+        font-size: 0.85rem;
     }
 }

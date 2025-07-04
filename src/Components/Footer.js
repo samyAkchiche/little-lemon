@@ -41,7 +41,7 @@ export default function Footer() {
                 </ul>
             </div>
             <div className={styles.column}>
-                <h4>Social Media Links</h4>
+                <h4>Social Media</h4>
                 <ul className={styles.list}>
                     {mediaLinks.map((mediaLink) => (
                         <li key={mediaLink}>

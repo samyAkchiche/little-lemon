@@ -7,10 +7,12 @@ export default function About() {
         <section className={styles.about}>
             <div>
                 <h1>Little Lemon</h1>
-                <h1>Chicago</h1>
+                <h2>Chicago</h2>
                 <p>
-                    We are a family owned Mediterranean restaurant, focused on
-                    traditional recipes served with a modern twist.
+                    Little Lemon is a charming neighbourhood bistro that serves
+                    simple food and classic cocktails in a lively but casual
+                    environment. The restaurant features a locally-sourced menu
+                    with daily specials.
                 </p>
             </div>
             <div className={styles.imgContainer}>

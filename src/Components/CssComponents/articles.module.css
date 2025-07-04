@@ -27,10 +27,20 @@
 
 @media (max-width: 426px) {
     .container {
-        margin: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    .specialLine {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
     }
 
     .specialLine h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }

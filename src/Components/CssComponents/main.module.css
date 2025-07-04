@@ -30,3 +30,24 @@
         gap: 5rem;
     }
 }
+@media (max-width: 426px) {
+    .main {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem 1rem;
+    }
+
+    .mainText {
+        align-self: center;
+        max-width: 100%;
+    }
+
+    .mainImage {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}

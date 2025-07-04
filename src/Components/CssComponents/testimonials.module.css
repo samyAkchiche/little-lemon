@@ -32,3 +32,10 @@
         font-size: 2rem;
     }
 }
+
+@media (max-width: 426px) {
+    .testimonialsSection {
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+    }
+}

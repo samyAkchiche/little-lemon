@@ -1,7 +1,12 @@
 .about {
     display: flex;
     margin: 1rem 20rem;
+    padding: 2rem 0;
     gap: 20rem;
+}
+
+.about h2 {
+    margin-bottom: 0.5rem;
 }
 
 .imgContainer {
@@ -34,4 +39,33 @@
     top: calc(50% + 4rem);
     left: calc(50% + 4rem);
     transform: translate(-90%, -60%);
+}
+
+@media (max-width: 1024px) {
+    .about {
+        margin: 3rem 7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        margin: 3rem 4rem;
+    }
+}
+
+@media (max-width: 426px) {
+    .about {
+        flex-direction: column;
+        margin: 1rem 2rem;
+        padding-top: 1rem;
+        gap: 4rem;
+    }
+
+    .imgContainer img:nth-child(1) {
+        transform: translate(-50%, -80%);
+    }
+
+    .imgContainer img:nth-child(2) {
+        transform: translate(-50%, -50%);
+    }
 }
