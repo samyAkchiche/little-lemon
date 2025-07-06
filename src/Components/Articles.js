@@ -1,4 +1,4 @@
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "./Cards/ArticleCard";
 import styles from "./CssComponents/articles.module.css";
 import bruchetta from "../icons_assets/bruchetta.svg";
 import greekSalad from "../icons_assets/greek salad.jpg";

@@ -1,4 +1,4 @@
-import TestimonialCard from "./TestimonialCard";
+import TestimonialCard from "./Cards/TestimonialCard";
 import ProfilePictureOne from "../icons_assets/ProfilePictureOne.jpg";
 import ProfilePictureTwo from "../icons_assets/ProfilePictureTwo.jpg";
 import ProfilePictureThree from "../icons_assets/ProfilePictureThree.jpg";

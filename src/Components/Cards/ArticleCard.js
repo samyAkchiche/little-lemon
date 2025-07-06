@@ -1,6 +1,6 @@
-import styles from "./CssComponents/articleCard.module.css";
+import styles from "../CssComponents/articleCard.module.css";
 import { Link } from "react-router-dom";
-import bikeIcon from "../icons_assets/bike-city.svg";
+import bikeIcon from "../../icons_assets/bike-city.svg";
 
 export default function ArticleCard({ img, title, price, description }) {
     return (

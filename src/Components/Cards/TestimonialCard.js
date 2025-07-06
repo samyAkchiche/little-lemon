@@ -1,5 +1,5 @@
-import styles from "./CssComponents/testimonialCard.module.css";
-import starIcon from "../icons_assets/star-svgrepo-com.svg";
+import styles from "../CssComponents/testimonialCard.module.css";
+import starIcon from "../../icons_assets/star-svgrepo-com.svg";
 
 export default function TestimonialCard({ img, rating, name, review }) {
     const renderStars = () => {
