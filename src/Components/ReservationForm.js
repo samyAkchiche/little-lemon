@@ -1,24 +1,13 @@
 import { useState } from "react";
 import styles from "./CssComponents/reservationForm.module.css";
 
-export default function ReservationForm() {
+export default function ReservationForm({ availableTimes, dispatch }) {
     const [form, setForm] = useState({
         date: "",
         time: "",
         guests: "",
         occasion: "",
     });
-
-    const [availableTimes, setAvailableTimes] = useState([
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-    ]);
-
-    console.log(form);
     return (
         <form className={styles.form}>
             <label htmlFor="res-date">Choose Date</label>
@@ -26,7 +15,11 @@ export default function ReservationForm() {
                 type="date"
                 id="res-date"
                 value={form.date}
-                onChange={(e) => setForm({ ...form, date: e.target.value })}
+                onChange={(e) => {
+                    const newDate = e.target.value;
+                    setForm({ ...form, date: newDate });
+                    dispatch({ type: "update_times", date: newDate });
+                }}
             />
             <label htmlFor="res-time">Choose Time</label>
             <select
@@ -34,20 +27,24 @@ export default function ReservationForm() {
                 value={form.time}
                 onChange={(e) => setForm({ ...form, time: e.target.value })}
             >
-                {availableTimes.map((time) => {
-                    return (
-                        <option key={time} value={time}>
-                            {time}
-                        </option>
-                    );
-                })}
+                {availableTimes && availableTimes.length > 0 ? (
+                    availableTimes.map((time) => {
+                        return (
+                            <option key={time} value={time}>
+                                {time}
+                            </option>
+                        );
+                    })
+                ) : (
+                    <option disabled>No available times</option>
+                )}
             </select>
             <label htmlFor="guests">Number of Guests</label>
             <input
                 type="number"
                 placeholder="1"
-                min={"1"}
-                max={"10"}
+                min={1}
+                max={10}
                 id="guests"
                 value={form.guests}
                 onChange={(e) => setForm({ ...form, guests: e.target.value })}
