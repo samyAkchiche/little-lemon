@@ -8,11 +8,10 @@ export default function ReservationForm({ availableTimes, dispatch }) {
         guests: "",
         occasion: "",
     });
+    console.log(availableTimes);
     return (
         <form className={styles.form}>
-            <label htmlFor="res-date" aria-label="Choose Dates">
-                Choose Date
-            </label>
+            <label htmlFor="res-date">Choose Date</label>
             <input
                 type="date"
                 id="res-date"
@@ -23,9 +22,7 @@ export default function ReservationForm({ availableTimes, dispatch }) {
                     dispatch({ type: "update_times", date: newDate });
                 }}
             />
-            <label htmlFor="res-time" aria-label="Choose Time">
-                Choose Time
-            </label>
+            <label htmlFor="res-time">Choose Time</label>
             <select
                 id="res-time"
                 value={form.time}
@@ -43,9 +40,7 @@ export default function ReservationForm({ availableTimes, dispatch }) {
                     <option disabled>No available times</option>
                 )}
             </select>
-            <label htmlFor="guests" aria-label="Number of Guests">
-                Number of Guests
-            </label>
+            <label htmlFor="guests">Number of Guests</label>
             <input
                 type="number"
                 placeholder="1"
@@ -55,9 +50,7 @@ export default function ReservationForm({ availableTimes, dispatch }) {
                 value={form.guests}
                 onChange={(e) => setForm({ ...form, guests: e.target.value })}
             ></input>
-            <label htmlFor="occasion" aria-label="Occasion">
-                Occasion
-            </label>
+            <label htmlFor="occasion">Occasion</label>
             <select
                 id="occasion"
                 value={form.occasion}

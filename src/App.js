@@ -1,9 +1,10 @@
 import Homepage from "./Pages/Homepage";
-import hamburgerIcon from "./icons_assets/🦆 icon _hamburger menu.svg";
+import hamburgerIcon from "./icons_assets/hamburgerIcon.svg";
 import AboutPage from "./Pages/AboutPage";
 import ReservationPage from "./Pages/ReservationPage";
 import { Routes, Route } from "react-router-dom";
 import MenuPage from "./Pages/MenuPage";
+import { initializeTimes, updateTimes } from "./Components/utils/times";
 import OnlineOrderPage from "./Pages/OnlineOrderPage";
 import LoginPage from "./Pages/LoginPage";
 import "./app.css";
@@ -11,13 +12,6 @@ import Header from "./Components/Header";
 import { useReducer, useState } from "react";
 import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
-
-const initializeTimes = () => {
-    return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-};
-const updateTimes = (state, action) => {
-    return initializeTimes();
-};
 
 function App() {
     const [isNavOpen, setIsNavOpen] = useState(false);
