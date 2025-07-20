@@ -1,16 +1,25 @@
 import { useState } from "react";
 import styles from "./CssComponents/reservationForm.module.css";
 
-export default function ReservationForm({ availableTimes, dispatch }) {
+export default function ReservationForm({
+    availableTimes,
+    dispatch,
+    submitForm,
+}) {
     const [form, setForm] = useState({
         date: "",
         time: "",
-        guests: "",
-        occasion: "",
+        guests: "1",
+        occasion: "Birthday",
     });
-    console.log(availableTimes);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        submitForm(form);
+    };
+
     return (
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit} method="POST">
             <label htmlFor="res-date">Choose Date</label>
             <input
                 type="date"
@@ -18,8 +27,8 @@ export default function ReservationForm({ availableTimes, dispatch }) {
                 value={form.date}
                 onChange={(e) => {
                     const newDate = e.target.value;
-                    setForm({ ...form, date: newDate });
-                    dispatch({ type: "update_times", date: newDate });
+                    setForm({ ...form, date: newDate, time: "" });
+                    dispatch({ type: "update", payload: newDate });
                 }}
             />
             <label htmlFor="res-time">Choose Time</label>

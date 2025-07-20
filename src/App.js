@@ -2,7 +2,7 @@ import Homepage from "./Pages/Homepage";
 import hamburgerIcon from "./icons_assets/hamburgerIcon.svg";
 import AboutPage from "./Pages/AboutPage";
 import ReservationPage from "./Pages/ReservationPage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import MenuPage from "./Pages/MenuPage";
 import { initializeTimes, updateTimes } from "./Components/utils/times";
 import OnlineOrderPage from "./Pages/OnlineOrderPage";
@@ -12,6 +12,8 @@ import Header from "./Components/Header";
 import { useReducer, useState } from "react";
 import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
+import { submitAPI } from "./api";
+import ReservationConfirmed from "./Components/ReservationConfirmed";
 
 function App() {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -20,9 +22,16 @@ function App() {
         [],
         initializeTimes
     );
+    const navigate = useNavigate();
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
+    };
+
+    const submitForm = (formData) => {
+        if (submitAPI(formData)) {
+            navigate("/reservationConfirmed");
+        }
     };
 
     return (
@@ -43,12 +52,17 @@ function App() {
                         <ReservationPage
                             availableTimes={availableTimes}
                             dispatch={dispatch}
+                            submitForm={submitForm}
                         />
                     }
                 />
                 <Route path="/menuPage" element={<MenuPage />} />
                 <Route path="/onlineOrderPage" element={<OnlineOrderPage />} />
                 <Route path="/loginPage" element={<LoginPage />} />
+                <Route
+                    path="/ReservationConfirmed"
+                    element={<ReservationConfirmed />}
+                />
             </Routes>
             <Footer />
         </>

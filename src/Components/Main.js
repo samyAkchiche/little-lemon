@@ -12,7 +12,7 @@ export default function Main() {
                     We are family owned Mediterranean restaurant focused on
                     traditional recipes served with a modern twist.
                 </p>
-                <Button props="Reserve a Table" />
+                <Button children="Reserve a Table" />
             </div>
             <img
                 className={styles.mainImage}

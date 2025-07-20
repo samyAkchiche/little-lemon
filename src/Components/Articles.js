@@ -10,7 +10,7 @@ export default function Articles() {
         <section className={styles.container}>
             <div className={styles.specialLine}>
                 <h1>This weeks specials!</h1>
-                <Button props={"Online Menu"} />
+                <Button children="Online Menu" />
             </div>
 
             <ArticleCard
