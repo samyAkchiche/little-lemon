@@ -9,9 +9,19 @@ export default function ReservationForm({
     const [form, setForm] = useState({
         date: "",
         time: "",
-        guests: "1",
+        guests: "0",
         occasion: "Birthday",
     });
+
+    const getIsFormValid = () => {
+        return (
+            form.date &&
+            form.time &&
+            form.guests >= 1 &&
+            form.guests <= 10 &&
+            form.occasion
+        );
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,12 +29,13 @@ export default function ReservationForm({
     };
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit} method="POST">
+        <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="res-date">Choose Date</label>
             <input
                 type="date"
                 id="res-date"
                 value={form.date}
+                required
                 onChange={(e) => {
                     const newDate = e.target.value;
                     setForm({ ...form, date: newDate, time: "" });
@@ -36,7 +47,11 @@ export default function ReservationForm({
                 id="res-time"
                 value={form.time}
                 onChange={(e) => setForm({ ...form, time: e.target.value })}
+                required
             >
+                <option value="" disabled>
+                    Select a Time
+                </option>
                 {availableTimes && availableTimes.length > 0 ? (
                     availableTimes.map((time) => {
                         return (
@@ -58,12 +73,14 @@ export default function ReservationForm({
                 id="guests"
                 value={form.guests}
                 onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                required
             ></input>
             <label htmlFor="occasion">Occasion</label>
             <select
                 id="occasion"
                 value={form.occasion}
                 onChange={(e) => setForm({ ...form, occasion: e.target.value })}
+                required
             >
                 <option value="Birthday">Birthday</option>
                 <option value="Anniversary">Anniversary</option>
@@ -72,6 +89,7 @@ export default function ReservationForm({
                 type="submit"
                 value="Make Your Reservation"
                 className={styles.submitButton}
+                disabled={!getIsFormValid()}
             />
         </form>
     );
