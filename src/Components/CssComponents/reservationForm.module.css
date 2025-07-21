@@ -1,5 +1,19 @@
 .form {
-    display: grid;
-    max-width: 200px;
-    gap: 20px;
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 2rem 25%;
+}
+
+.submitButton {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background-color: #f4ce14;
 }

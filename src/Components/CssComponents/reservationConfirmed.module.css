@@ -1,0 +1,21 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.checkIcon {
+    width: 9rem;
+    margin-bottom: 3rem;
+}
+
+.checkIcon path {
+    fill: green;
+}
+
+.container span {
+    color: green;
+    padding-left: 0.5rem;
+}

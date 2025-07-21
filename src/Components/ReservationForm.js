@@ -65,10 +65,14 @@ export default function ReservationForm({
                 value={form.occasion}
                 onChange={(e) => setForm({ ...form, occasion: e.target.value })}
             >
-                <option value={"Birthday"}>Birthday</option>
-                <option value={"Anniversary"}>Anniversary</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
             </select>
-            <input type="submit" value="Make Your Reservation" />
+            <input
+                type="submit"
+                value="Make Your Reservation"
+                className={styles.submitButton}
+            />
         </form>
     );
 }
