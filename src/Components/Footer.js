@@ -1,6 +1,7 @@
 import Logo from "../icons_assets/Logo.svg";
 import styles from "./CssComponents/footer.module.css";
 
+
 const doormatLinks = [
     "Home",
     "About",

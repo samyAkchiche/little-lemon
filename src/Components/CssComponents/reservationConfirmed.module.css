@@ -1,5 +1,5 @@
-.confirmationContainer {
-    height: 70vh;
+.container {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
     fill: green;
 }
 
-.confirmationContainer span {
+.container span {
     color: green;
     padding-left: 0.5rem;
 }

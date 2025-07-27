@@ -8,14 +8,12 @@ export default function ReservationConfirmed() {
     const reservation = location.state?.reservation;
 
     return (
-        <>
-            <div className={styles.confirmationContainer}>
-                <CircleCheck className={styles.checkIcon} />
-                <h1>
-                    Your Reservation has been<span>confirmed !</span>
-                </h1>
-            </div>
+        <div className={styles.container}>
+            <CircleCheck className={styles.checkIcon} />
+            <h1>
+                Your Reservation has been<span>confirmed !</span>
+            </h1>
             {reservation && <ReservationTable reservations={[reservation]} />}
-        </>
+        </div>
     );
 }

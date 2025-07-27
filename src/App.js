@@ -17,7 +17,10 @@ import ReservationConfirmed from "./Components/ReservationConfirmed";
 
 function App() {
     const [isNavOpen, setIsNavOpen] = useState(false);
-    const [reservations, setReservations] = useState([]);
+    const [reservations, setReservations] = useState(() => {
+        const storedReservations = localStorage.getItem("reservations");
+        return storedReservations ? JSON.parse(storedReservations) : [];
+    });
     const [availableTimes, dispatch] = useReducer(
         updateTimes,
         [],
@@ -26,7 +29,8 @@ function App() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("Reservations have been updated:", reservations);
+        localStorage.setItem("reservations", JSON.stringify(reservations));
+        console.log(reservations);
     }, [reservations]);
 
     const toggleNav = () => {
