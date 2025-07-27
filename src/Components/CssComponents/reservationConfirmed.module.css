@@ -1,5 +1,5 @@
-.container {
-    height: 100vh;
+.confirmationContainer {
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +16,9 @@
     fill: green;
 }
 
-.container span {
+.confirmationContainer span {
     color: green;
+    padding-left: 0.5rem;
 }
 
 @keyframes bounceAnimation {

@@ -9,7 +9,7 @@ import OnlineOrderPage from "./Pages/OnlineOrderPage";
 import LoginPage from "./Pages/LoginPage";
 import "./app.css";
 import Header from "./Components/Header";
-import { useReducer, useState } from "react";
+import { useReducer, useState, useEffect } from "react";
 import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
 import { submitAPI } from "./api";
@@ -17,6 +17,7 @@ import ReservationConfirmed from "./Components/ReservationConfirmed";
 
 function App() {
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const [reservations, setReservations] = useState([]);
     const [availableTimes, dispatch] = useReducer(
         updateTimes,
         [],
@@ -24,13 +25,20 @@ function App() {
     );
     const navigate = useNavigate();
 
+    useEffect(() => {
+        console.log("Reservations have been updated:", reservations);
+    }, [reservations]);
+
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
     };
 
     const submitForm = (formData) => {
         if (submitAPI(formData)) {
-            navigate("/reservationConfirmed");
+            setReservations([...reservations, formData]);
+            navigate("/reservationConfirmed", {
+                state: { reservation: formData },
+            });
         }
     };
 

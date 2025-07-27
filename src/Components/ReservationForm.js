@@ -26,6 +26,7 @@ export default function ReservationForm({
     const handleSubmit = (e) => {
         e.preventDefault();
         submitForm(form);
+        console.log(form);
     };
 
     return (
