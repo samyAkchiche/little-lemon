@@ -39,9 +39,10 @@ function App() {
 
     const submitForm = (formData) => {
         if (submitAPI(formData)) {
-            setReservations([...reservations, formData]);
+            const updatedReservations = [...reservations, formData];
+            setReservations(updatedReservations);
             navigate("/reservationConfirmed", {
-                state: { reservation: formData },
+                state: { reservations: updatedReservations },
             });
         }
     };
@@ -53,7 +54,7 @@ function App() {
             </button>
             <div className={`navBar ${isNavOpen ? "open" : ""}`}>
                 <Header />
-                <Nav />
+                <Nav closeNav={toggleNav} />
             </div>
             <Routes>
                 <Route path="/" element={<Homepage />} />

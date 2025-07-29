@@ -9,18 +9,15 @@ export default function ReservationForm({
     const [form, setForm] = useState({
         date: "",
         time: "",
-        guests: "0",
+        guests: 1,
         occasion: "Birthday",
     });
 
+    const isGuestsInvalid =
+        form.guests !== 1 && (form.guests < 1 || form.guests > 10);
+
     const getIsFormValid = () => {
-        return (
-            form.date &&
-            form.time &&
-            form.guests >= 1 &&
-            form.guests <= 10 &&
-            form.occasion
-        );
+        return form.date && form.time && !isGuestsInvalid && form.occasion;
     };
 
     const handleSubmit = (e) => {
@@ -74,8 +71,15 @@ export default function ReservationForm({
                 id="guests"
                 value={form.guests}
                 onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                aria-invalid={isGuestsInvalid}
+                aria-describedby="guests-error"
                 required
             ></input>
+            {isGuestsInvalid && (
+                <p id="guests-error" className={styles.errorText} role="alert">
+                    * Please enter a number between 1 and 10.
+                </p>
+            )}
             <label htmlFor="occasion">Occasion</label>
             <select
                 id="occasion"
