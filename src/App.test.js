@@ -10,14 +10,14 @@ test("renders the ReservationForm heading", () => {
 });
 
 describe("ReservationForm reducer function", () => {
-    test("initializeTimes  returns expected initial times", () => {
+    test("initializeTimes returns expected initial times", () => {
         const expectedTimes = [
             "17:00",
-            "18:00",
-            "19:00",
+            "17:30",
+            "19:30",
             "20:00",
             "21:00",
-            "22:00",
+            "23:00",
         ];
         expect(initializeTimes()).toEqual(expectedTimes);
     });
@@ -26,11 +26,13 @@ describe("ReservationForm reducer function", () => {
 test("Submit the ReservationForm", async () => {
     const user = userEvent.setup();
     const mockDispatch = jest.fn();
+    const mockSubmitForm = jest.fn();
 
     render(
         <ReservationForm
             dispatch={mockDispatch}
-            availableTimes={["17:00", "18:00"]}
+            availableTimes={["17:00", "17:30"]}
+            submitForm={mockSubmitForm}
         />
     );
 
