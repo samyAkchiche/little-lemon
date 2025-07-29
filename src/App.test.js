@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import ReservationForm from "./Components/ReservationForm";
-import { initializeTimes, updateTimes } from "./Components/utils/times";
+import { initializeTimes } from "./Components/utils/times";
 import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
+import App from "./App";
 
 test("renders the ReservationForm heading", () => {
     render(<ReservationForm />);
@@ -49,4 +51,60 @@ test("Submit the ReservationForm", async () => {
     await user.type(guestsInput, "4");
     await user.selectOptions(occasionSelect, "Birthday");
     await user.click(submitButton);
+
+    expect(mockSubmitForm).toHaveBeenCalled();
+});
+
+test("Write reservation Data to localStorage", async () => {
+    const user = userEvent.setup();
+    const mockDispatch = jest.fn();
+
+    Storage.prototype.setItem = jest.fn();
+
+    const mockSubmitForm = (formData) => {
+        const reservations = [formData];
+        localStorage.setItem("reservations", JSON.stringify(reservations));
+    };
+
+    render(
+        <ReservationForm
+            dispatch={mockDispatch}
+            submitForm={mockSubmitForm}
+            availableTimes={["17:00", "17:30"]}
+        />
+    );
+
+    await user.type(screen.getByLabelText(/Choose Date/i), "2025-12-25");
+    await user.selectOptions(screen.getByLabelText(/Choose Time/i), "17:00");
+    await user.type(screen.getByLabelText(/Number of Guests/i), "4");
+    await user.selectOptions(screen.getByLabelText(/Occasion/i), "Birthday");
+    await user.click(
+        screen.getByRole("button", { name: /Make Your Reservation/i })
+    );
+
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+        "reservations",
+        expect.stringContaining("2025-12-25")
+    );
+});
+
+test("Reads reservations from localStorage on component mount", async () => {
+    const mockReservations = [
+        {
+            date: "2025-12-25",
+            time: "17:00",
+            guests: "4",
+            occasion: "Birthday",
+        },
+    ];
+
+    Storage.prototype.getItem = jest.fn(() => JSON.stringify(mockReservations));
+
+    render(
+        <MemoryRouter>
+            <App />
+        </MemoryRouter>
+    );
+
+    expect(localStorage.getItem).toHaveBeenCalledWith("reservations");
 });
