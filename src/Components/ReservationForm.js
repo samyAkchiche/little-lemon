@@ -70,7 +70,9 @@ export default function ReservationForm({
                 max={10}
                 id="guests"
                 value={form.guests}
-                onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                onChange={(e) =>
+                    setForm({ ...form, guests: Number(e.target.value) })
+                }
                 aria-invalid={isGuestsInvalid}
                 aria-describedby="guests-error"
                 required
