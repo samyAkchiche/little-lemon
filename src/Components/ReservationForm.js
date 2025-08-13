@@ -97,6 +97,7 @@ export default function ReservationForm({
                 value="Make Your Reservation"
                 className={styles.submitButton}
                 disabled={!getIsFormValid()}
+                aria-label="On Click"
             />
         </form>
     );
