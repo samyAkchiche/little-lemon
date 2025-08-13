@@ -8,7 +8,7 @@
 
 .checkIcon {
     width: 9rem;
-    margin-bottom: 3rem;
+    margin: 4rem 0 3rem;
     animation: bounceAnimation 0.5s ease-in-out 0s 1 normal forwards;
 }
 
@@ -19,6 +19,26 @@
 .container span {
     color: green;
     padding-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .checkIcon {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 426px) {
+    .container {
+        margin: 4rem 2rem 1rem;
+    }
+
+    .container span {
+        padding-left: 0.2rem;
+    }
+
+    .container h1 {
+        text-align: center;
+    }
 }
 
 @keyframes bounceAnimation {
