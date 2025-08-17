@@ -1,3 +1,5 @@
+![Little Lemon screenshot](./little-lemon-screenshot.png)
+
 # Little Lemon Restaurant 🍴  
 
 ![React](https://img.shields.io/badge/React-18.0-blue?logo=react)  
