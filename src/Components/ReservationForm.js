@@ -6,6 +6,7 @@ export default function ReservationForm({
     dispatch,
     submitForm,
 }) {
+    const [dateError, setDateError] = useState("");
     const [form, setForm] = useState({
         date: "",
         time: "",
@@ -13,11 +14,30 @@ export default function ReservationForm({
         occasion: "Birthday",
     });
 
+    const validateDate = (selectedDate) => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const chosen = new Date(selectedDate);
+
+        if (chosen < today) {
+            setDateError("* Please select a date that is today or later");
+        } else {
+            setDateError("");
+            return true;
+        }
+    };
+
     const isGuestsInvalid =
         form.guests !== 1 && (form.guests < 1 || form.guests > 10);
 
     const getIsFormValid = () => {
-        return form.date && form.time && !isGuestsInvalid && form.occasion;
+        return (
+            form.date &&
+            form.time &&
+            !isGuestsInvalid &&
+            form.occasion &&
+            !dateError
+        );
     };
 
     const handleSubmit = (e) => {
@@ -37,9 +57,11 @@ export default function ReservationForm({
                 onChange={(e) => {
                     const newDate = e.target.value;
                     setForm({ ...form, date: newDate, time: "" });
+                    validateDate(newDate);
                     dispatch({ type: "update", payload: newDate });
                 }}
             />
+            {dateError && <p>{dateError}</p>}
             <label htmlFor="res-time">Choose Time</label>
             <select
                 id="res-time"
