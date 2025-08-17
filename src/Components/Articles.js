@@ -4,13 +4,18 @@ import bruchetta from "../icons_assets/bruchetta.svg";
 import greekSalad from "../icons_assets/greek salad.jpg";
 import lemonDessert from "../icons_assets/lemon dessert.jpg";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Articles() {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/menuPage");
+    };
     return (
         <section className={styles.container}>
             <div className={styles.specialLine}>
                 <h1>This weeks specials!</h1>
-                <Button children="Online Menu" />
+                <Button children="Online Menu" onClick={handleClick} />
             </div>
 
             <ArticleCard

@@ -8,7 +8,7 @@
     text-align: left;
 }
 
-.footer img {
+.footerLogo {
     width: 150px;
     height: auto;
     align-self: start;
@@ -30,6 +30,21 @@
     text-decoration: none;
     color: black;
     transition: color 0.3s;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.icon {
+    height: 2rem;
+    width: auto;
+    display: block;
+}
+
+.socialList {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
 }
 
 .link:hover {
@@ -42,11 +57,11 @@ h4 {
 
 @media (max-width: 426px) {
     .footer {
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .footer img {
+    .footer > img {
         grid-column: 1 / -1;
         width: 90%;
     }

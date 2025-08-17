@@ -38,8 +38,15 @@ function App() {
     };
 
     const submitForm = (formData) => {
-        if (submitAPI(formData)) {
-            const updatedReservations = [...reservations, formData];
+        const cleanedData = {
+            date: formData.date,
+            time: formData.time,
+            guests: formData.guests,
+            occasion: formData.occasion,
+        };
+
+        if (submitAPI(cleanedData)) {
+            const updatedReservations = [...reservations, cleanedData];
             setReservations(updatedReservations);
             navigate("/reservationConfirmed", {
                 state: { reservations: updatedReservations },
