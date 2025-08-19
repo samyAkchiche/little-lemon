@@ -1,6 +1,7 @@
 import mainImage from "../icons_assets/restauranfood.jpg";
 import Button from "./Button";
 import styles from "./CssComponents/main.module.css";
+import { Link } from "react-router-dom";
 
 export default function Main() {
     return (
@@ -12,7 +13,9 @@ export default function Main() {
                     We are family owned Mediterranean restaurant focused on
                     traditional recipes served with a modern twist.
                 </p>
-                <Button children="Reserve a Table" />
+                <Link to={"/reservationPage"}>
+                    <Button children="Reserve a Table" />
+                </Link>
             </div>
             <img
                 className={styles.mainImage}

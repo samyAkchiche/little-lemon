@@ -15,14 +15,17 @@ export default function ReservationTable({ reservations }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {reservations.slice(-5).reverse().map((reservation, index) => (
-                            <tr key={index}>
-                                <td>{reservation.date}</td>
-                                <td>{reservation.time}</td>
-                                <td>{reservation.guests}</td>
-                                <td>{reservation.occasion}</td>
-                            </tr>
-                        ))}
+                        {reservations
+                            .slice(-5)
+                            .reverse()
+                            .map((reservation, index) => (
+                                <tr key={index}>
+                                    <td>{reservation.date}</td>
+                                    <td>{reservation.time}</td>
+                                    <td>{reservation.guests}</td>
+                                    <td>{reservation.occasion}</td>
+                                </tr>
+                            ))}
                     </tbody>
                 </table>
             ) : (
