@@ -24,6 +24,11 @@ This repository contains the source code for the Little Lemon restaurant website
 *   **Client-Side Routing**: Smooth, single-page application (SPA) navigation between the Home, About, Menu, and Reservation pages is handled by React Router.
 *   **Component-Based Architecture**: The application is built with reusable React components and styled with CSS Modules to ensure maintainability and scoped styling.
 
+## Project Status 📌
+
+Currently, only the **Homepage** and the **Reservation Page** are fully functional.  
+Other pages like *About*, *Menu*, and *Online Order* are placeholders and will be developed in future iterations.
+
 ## Technology Stack 🛠️
 
 *   **Frontend**: React, JavaScript (ES6+), HTML5, CSS3
