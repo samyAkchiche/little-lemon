@@ -15,7 +15,7 @@ export default function ReservationTable({ reservations }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {reservations.map((reservation, index) => (
+                        {reservations.slice(-5).reverse().map((reservation, index) => (
                             <tr key={index}>
                                 <td>{reservation.date}</td>
                                 <td>{reservation.time}</td>

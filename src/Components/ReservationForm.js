@@ -8,6 +8,7 @@ export default function ReservationForm({
 }) {
     const [dateError, setDateError] = useState("");
     const [step, setStep] = useState(1);
+    const [touched, setTouched] = useState({});
     const [form, setForm] = useState({
         date: "",
         time: "",
@@ -48,10 +49,11 @@ export default function ReservationForm({
     };
 
     const getIsFormValidStepTwo = () => {
+        const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
         return (
-            form.firstName &&
-            form.lastName &&
-            form.email &&
+            form.firstName.trim() &&
+            form.lastName.trim() &&
+            emailValid &&
             form.phoneNumber &&
             form.acceptedPolicy
         );
@@ -167,8 +169,14 @@ export default function ReservationForm({
                         onChange={(e) => {
                             setForm({ ...form, firstName: e.target.value });
                         }}
+                        onBlur={() => {
+                            setTouched({ ...touched, firstName: true });
+                        }}
                         required
-                    ></input>
+                    />
+                    {!form.firstName && touched.firstName && (
+                        <p role="alert">First name is required</p>
+                    )}
                     <label htmlFor="lastName">Last Name</label>
                     <input
                         type="text"
@@ -177,8 +185,14 @@ export default function ReservationForm({
                         onChange={(e) => {
                             setForm({ ...form, lastName: e.target.value });
                         }}
+                        onBlur={() => {
+                            setTouched({ ...touched, lastName: true });
+                        }}
                         required
                     />
+                    {!form.lastName && touched.lastName && (
+                        <p role="alert">Last name is required</p>
+                    )}
                     <label htmlFor="email">Email</label>
                     <input
                         id="email"
@@ -187,18 +201,34 @@ export default function ReservationForm({
                         onChange={(e) => {
                             setForm({ ...form, email: e.target.value });
                         }}
+                        onBlur={() => {
+                            setTouched({ ...touched, email: true });
+                        }}
                         required
                     />
+                    {!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) &&
+                        touched.email && <p role="alert">Email is required</p>}
                     <label htmlFor="phoneNumber">Phone Number</label>
                     <input
                         type="tel"
                         id="phoneNumber"
                         value={form.phoneNumber}
                         onChange={(e) => {
-                            setForm({ ...form, phoneNumber: e.target.value });
+                            const value = e.target.value
+                                .replace(/[^0-9+]/g, "")
+                                .trim();
+                            setForm({ ...form, phoneNumber: value });
+                        }}
+                        onBlur={() => {
+                            setTouched({ ...touched, phoneNumber: true });
                         }}
                         required
                     />
+                    {!form.phoneNumber &&
+                        touched.phoneNumber &&
+                        !/^\+?[0-9]{7,15}$/.test(form.phoneNumber) && (
+                            <p role="alert">*Enter a valid phone number</p>
+                        )}
                     <label htmlFor="specialRequest">Special Request</label>
                     <textarea
                         id="specialRequest"
@@ -222,6 +252,12 @@ export default function ReservationForm({
                                     acceptedPolicy: e.target.checked,
                                 });
                             }}
+                            onBlur={() => {
+                                setTouched({
+                                    ...touched,
+                                    acceptedPolicy: true,
+                                });
+                            }}
                             required
                         />
                         <label htmlFor="acceptedPolicy">
@@ -234,6 +270,11 @@ export default function ReservationForm({
                                 Privacy Policy
                             </a>
                         </label>
+                        {!form.acceptedPolicy && touched.acceptedPolicy && (
+                            <p role="alert">
+                                * You must accept the Privacy Policy
+                            </p>
+                        )}
                     </div>
                     <input
                         type="submit"
