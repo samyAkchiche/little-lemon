@@ -20,7 +20,7 @@ export default function Main() {
             <img
                 className={styles.mainImage}
                 src={mainImage}
-                alt="Image of restaurant's food"
+                alt="Restaurant's food"
             />
         </main>
     );
