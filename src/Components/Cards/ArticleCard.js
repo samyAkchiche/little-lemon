@@ -5,7 +5,7 @@ import bikeIcon from "../../icons_assets/bike-city.svg";
 export default function ArticleCard({ img, title, price, description }) {
     return (
         <article className={styles.article}>
-            <img src={img} className={styles.img} />
+            <img src={img} className={styles.img} alt={title}/>
             <div className={styles.textContainer}>
                 <p className={styles.title}>
                     {title} <span className={styles.price}>{price}</span>
