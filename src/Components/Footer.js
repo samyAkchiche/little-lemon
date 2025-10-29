@@ -15,10 +15,9 @@ const doormatLinks = [
     { text: "Login", path: "/loginPage" },
 ];
 const contacts = [
-    "20B Lorem Street Chicago, US",
-    "+213 5* *** ** **",
-    "samyakchiche04@gmail.com",
-];
+    { text: "20B Lorem Street Chicago, US", href: "20B Lorem Street Chicago, US" },
+    { text: "+213 5* *** ** **", href: "tel:+21350000000" },
+    { text: "samyakchiche04@gmail.com", href: "mailto:samyakchiche04@gmail.com" }];
 const socialLinks = [
     { name: "Facebook", logo: fbLogo, url: "https://facebook.com" },
     { name: "Instagram", logo: instaLogo, url: "https://instagram.com" },
@@ -53,9 +52,15 @@ export default function Footer() {
                 <ul className={styles.list}>
                     {contacts.map((contact) => (
                         <li key={contact}>
-                            <a href="#" className={styles.link}>
-                                {contact}
-                            </a>
+                        {contact.href ? (
+                                <a href={contact.href} className={styles.link}>
+                                    {contact.text}
+                                </a>    
+                        ) : (
+                                <span className={styles.link}>
+                                    {contact.text}
+                                </span> 
+                        )}
                         </li>
                     ))}
                 </ul>
