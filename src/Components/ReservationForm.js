@@ -262,13 +262,13 @@ export default function ReservationForm({
                         />
                         <label htmlFor="acceptedPolicy">
                             I agree to the
-                            <a
+                            <span
                                 href="#"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 Privacy Policy
-                            </a>
+                            </span>
                         </label>
                         {!form.acceptedPolicy && touched.acceptedPolicy && (
                             <p role="alert">
