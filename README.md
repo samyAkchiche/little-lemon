@@ -36,6 +36,10 @@ Other pages like *About*, *Menu*, and *Online Order* are placeholders and will b
 *   **Styling**: CSS Modules
 *   **Testing**: Jest & React Testing Library
 
+## Live Demo 🎥
+
+Check out the app here 👉 **[Little-Lemon](https://littlelemonrestaurantbysamy.netlify.app/)**
+
 ## Getting Started 🚦
 
 To get a local copy up and running, follow these simple steps.
